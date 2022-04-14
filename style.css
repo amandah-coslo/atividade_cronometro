@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-top: 5%;
+    margin-left: 32%;
+}
+/**/
+.cronometro {
+    margin-left: 25%;
+    margin-top: 15%;
+    padding: 5%;
+    width: 150px;
+    height: 50px;
+    border: 2px solid #D980FA;
+    border-radius: 10px;
+}
+
+/**/
+.botao {
+    margin-left: 15%;
+    margin-top: 12%;
+    color: skyblue;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/**/
+.botao:active {
+    margin-left: 15%;
+    margin-top: 12%;
+    color: #D980FA;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #0652DD;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
