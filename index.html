@@ -4,51 +4,72 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gDocument</title>
+    <title>Cronometro</title>
     <link rel="stylesheet" href="./style.css"> 
   </head>
   <body>
-    <h1>Cronometro</h1>
-    <div class="cronometro">
-        <span id="min">00</span><span>:</span><span id="seg">00</span>
-    </div>
+    <div class="relogio">
+      <h1>CRONOMETRO</h1>
+        <div id="crono"></div>
 
-    <button type="button" id="iniciar" class="botao" onclick="iniciar()">Iniciar</button>
-    <button type="button" id="parar" class="botao" onclick="parar()">Parar</button>
+      <button type="button" class="botao" id="iniciar" onclick="iniciar()">Começar</button>
+      <button type="button" class="botao" id="parar">Parar</button>
+      <button type="button" class="botao" id="zerar">Zerar</button>
+    </div>    
+    <script>
+      var relCrono = document.getElementById('crono');
+      var cent = 0;
+      var seg = 0;
+      var min = 0;
 
-    <script type="text/javascript">
-        let min = 0;
-        let seg = 0;
-
-        var elBotaoIniciar = document.getElementById("botaoIniciar");
-        var elBotaoParar = document.getElementById("botaoParar");
-        
-        function seg(){
-            //incrementa os segs
-            seg++;
-            if(seg==60){
-                //incremntaos mins
-                min++;
-                //zera os segs
-                seg=0;
-                //escreve os mins
-                document.getElementById("min").innerHTML = min;
-            }
-            //escreve os segs
-            document.getElementsById("seg").innerHTML = seg;
+      function cronometro() {
+        cent++;
+        if(cent >= 100){
+          seg++
+          cent = 0
         }
-        setInterval(function(){
-            seg()
-        }, 1000);
-
-        function iniciar(){
-
+        if(seg == 60){
+          min++
+          seg = 0
+        }
+        if(min == 60){
+          cent, seg, min = 0;
         }
 
-        function parar(){
+        //interpolação de string
 
-        }
+        var segundo = seg < 10 ? `0`+ seg : seg;
+        var minuto = min < 10 ? `0` + min : min;
 
+        var cronometro = `${minuto}:${segundo}`;
+        relCrono.innerHTML = cronometro;
+      };
+
+      //inicia o cronometro
+      function inicia() {
+        timer = setInterval(cronometro, 10);
+      }
+
+      //para o cronometro
+      function para() {
+        clearInterval(timer)
+      }
+
+      //zera o cronometro
+      function zera() {   
+        seg = 0;
+        min = 0;
+
+        relCrono.innerHTML = `00:00`
+      }
+
+      var iniciar = document.getElementById('iniciar');
+      var parar =  document.getElementById('parar');
+      var zerar = document.getElementById('zerar');
+
+      iniciar.addEventListener('click', inicia, false);
+      parar.addEventListener('click', para, false);
+      zerar.addEventListener('click', zera, false);
     </script>
   </body>
-</html>
+</html>      

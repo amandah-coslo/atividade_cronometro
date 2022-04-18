@@ -3,26 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+#crono {
+    margin-top: 2%;
+    margin-left: 25%;
+    font-size: 20px;
+}
 
 h1 {
-    margin-top: 5%;
-    margin-left: 32%;
+    margin-top: 2%;
+    margin-left: 19%;
 }
-/**/
+/*
 .cronometro {
-    margin-left: 25%;
-    margin-top: 15%;
-    padding: 5%;
+    margin-left: 20%;
+    margin-top: 2%;
+    padding-left: 4%;
+    padding-top: 1%;
     width: 150px;
     height: 50px;
     border: 2px solid #D980FA;
     border-radius: 10px;
-}
+}*/
 
 /**/
 .botao {
-    margin-left: 15%;
-    margin-top: 12%;
+    margin-left: 10%;
+    margin-top: 2%;
     color: skyblue;
     width: 150px;
     height: 50px;
@@ -35,13 +41,26 @@ h1 {
 
 /**/
 .botao:active {
-    margin-left: 15%;
-    margin-top: 12%;
+    margin-left: 10%;
+    margin-top: 2%;
     color: #D980FA;
     width: 150px;
     height: 50px;
     background-color: transparent;
     border: 2px solid #0652DD;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.botao:hover {
+    margin-left: 10%;
+    margin-top: 2%;
+    color: #0652DD;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #D980FA;
     border-radius: 10px;
     font-size: 16px;
     font-weight: 600;
