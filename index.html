@@ -10,14 +10,18 @@
   <body>
     <div class="relogio">
       <h1>CRONOMETRO</h1>
-        <div id="crono"></div>
+      <div id="crono"></div>
 
-      <button type="button" class="botao" id="iniciar" onclick="iniciar()">Começar</button>
-      <button type="button" class="botao" id="parar">Parar</button>
-      <button type="button" class="botao" id="zerar">Zerar</button>
+      <input type="button" class="botao" id="iniciar" onclick="mudar()" value="Iniciar">
+      <input type="button" class="botao" id="zerar" onclick="limpalimpa()" value="Zerar">
+
     </div>    
     <script>
       var relCrono = document.getElementById('crono');
+      var iniciar = document.getElementById('iniciar');
+      var parar =  document.getElementById('parar');
+      var zerar = document.getElementById('zerar');
+
       var cent = 0;
       var seg = 0;
       var min = 0;
@@ -37,39 +41,37 @@
         }
 
         //interpolação de string
-
         var segundo = seg < 10 ? `0`+ seg : seg;
         var minuto = min < 10 ? `0` + min : min;
 
         var cronometro = `${minuto}:${segundo}`;
         relCrono.innerHTML = cronometro;
       };
-
-      //inicia o cronometro
-      function inicia() {
-        timer = setInterval(cronometro, 10);
-      }
-
-      //para o cronometro
-      function para() {
-        clearInterval(timer)
-      }
+      
+      //mudar os botões de iniciar para parar
+      function mudar() {
+        var flag = true;
+        
+        if (iniciar.value == "Iniciar"){
+          //inicia o cronometro
+          flag = false;
+          iniciar.value = "Parar";
+          timer = setInterval(cronometro, 10);
+        } else {
+          //para o cronometro
+          flag = true;
+          iniciar.value = "Iniciar"
+          clearInterval(timer);
+        }
+      }      
 
       //zera o cronometro
-      function zera() {   
+      function limpalimpa(){
         seg = 0;
         min = 0;
 
-        relCrono.innerHTML = `00:00`
+        relCrono.innerHTML='00:00'
       }
-
-      var iniciar = document.getElementById('iniciar');
-      var parar =  document.getElementById('parar');
-      var zerar = document.getElementById('zerar');
-
-      iniciar.addEventListener('click', inicia, false);
-      parar.addEventListener('click', para, false);
-      zerar.addEventListener('click', zera, false);
     </script>
   </body>
 </html>      
